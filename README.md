@@ -1,2 +1,47 @@
 # SmartLog
  
+Structure of history
+
+- train_case_0:
+    - param_dict
+    - fold_0:
+        - cm:
+            - TP
+            - FP
+            - TN
+            - FN
+        - overall_analysis:
+            - accuracy
+            - balanced_accuracy
+            - sensitivity
+            - specificity
+            - precision
+            - f1-score
+        - deep_analysis
+            - negative_predictive_value
+            - false_negative_rate
+            - false_positive_rate
+            - false_discovery_rate
+            - false_omission_rate
+            - positive_likelihood_ratio
+            - negative_likelihood_ratio
+            - prevalence_threshold
+            - threat_score
+            - prevalence
+            - matthews_correlation_coefficient
+            - fowlkes_mallows_index
+            - informedness
+            - markedness
+            - diagnostic_odds_ratio
+        - ROC_CURVE
+            - true_positive_rate
+            - false_positive_rate
+        - AUC_SCORE
+            - roc_auc_macro
+            - roc_auc_micro
+            - roc_auc_weighted
+        - Classification_Report
+    - fold_1
+    - fold_n
+- train_case_1
+- train_case_n
