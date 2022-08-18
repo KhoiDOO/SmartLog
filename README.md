@@ -4,8 +4,9 @@ Structure of history
 
 - train_case_0:
     - param_dict
-    - fold_0:
-        - cm:
+    - fold_data
+        - fold_0:
+        - confusion_matrix:
             - TP
             - FP
             - TN
@@ -33,9 +34,14 @@ Structure of history
             - informedness
             - markedness
             - diagnostic_odds_ratio
-        - ROC_CURVE
-            - true_positive_rate
-            - false_positive_rate
+        - ROC_CURVE : dict 
+            - true_positive_rate : numpy array
+            - false_positive_rate : numpy array
+            - thresh_holds : numpy array
+            - fpr_micro_avg : numpy array
+            - tpr_micro_avg : numpy array
+            - fpr_macro_avg : numpy array
+            - tpr_macro_avg : numpy array
         - AUC_SCORE
             - roc_auc_macro
             - roc_auc_micro

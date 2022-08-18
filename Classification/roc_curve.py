@@ -11,6 +11,9 @@ class roc_curve_score:
         self.thresh_holds = {}
         for x in range(num_class):
             self.fprs[x], self.tprs[x], self.thresh_holds[x] = roc_curve(self.y_test[:, x], self.y_score[:, x], drop_intermediate=False)
+            self.fprs[x] = self.fprs[x].tolist()
+            self.tprs[x] = self.tprs[x].tolist()
+            self.thresh_holds[x] = self.thresh_holds[x].tolist()
         
         self.fpr_micro_avg, self.tpr_micro_avg, self.threshold_micro_avg, = roc_curve(self.y_test.ravel(), self.y_score.ravel())
         
@@ -19,8 +22,8 @@ class roc_curve_score:
         for i in range(num_class):
             mean_tpr += np.interp(all_fpr, self.fprs[i], self.tprs[i])
         mean_tpr /= num_class
-        self.fpr_macro_avg = all_fpr
-        self.tpr_macro_avg = mean_tpr
+        self.fpr_macro_avg = all_fpr.tolist()
+        self.tpr_macro_avg = mean_tpr.tolist()
     
     def get_tpr(self, _class = None):
         if(_class):
@@ -45,8 +48,8 @@ class roc_curve_score:
             "tpr" : self.get_tpr(),
             "fpr" : self.get_fpr(),
             "thresholds" : self.get_thresholds(),
-            "fpr_micro_avg" : self.fpr_micro_avg,
-            "tpr_micro_avg" : self.tpr_micro_avg,
+            "fpr_micro_avg" : self.fpr_micro_avg.tolist(),
+            "tpr_micro_avg" : self.tpr_micro_avg.tolist(),
             "fpr_macro_avg" : self.fpr_macro_avg,
             "tpr_macro_avg" : self.tpr_macro_avg,
         }
