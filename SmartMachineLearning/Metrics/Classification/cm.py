@@ -1,5 +1,36 @@
-from Classification.cm import CM
+from sklearn.metrics import confusion_matrix
 import math
+
+class CM:
+    def __init__(self, y_true, y_pred):
+        self.cm = confusion_matrix(y_true, y_pred) # confusion matrix
+        self.TP = int(self.cm[1][1]) # true positive
+        self.FN = int(self.cm[1][0]) # false negative
+        self.FP = int(self.cm[0][1]) # false positive
+        self.TN = int(self.cm[0][0]) # true negative
+    
+    def get_true_positive(self):
+        return self.TP
+
+    def get_false_positive(self):
+        return self.FP
+
+    def get_true_negative(self):
+        return self.TN
+
+    def get_false_negative(self):
+        return self.FN
+
+    def get_cm(self, dict_form = True):
+        if(dict_form):
+            return {
+                "TP" : self.get_true_positive(),
+                "FP" : self.get_false_negative(),
+                "TN" : self.get_true_negative(),
+                "FN" : self.get_false_negative()
+            }
+        else:
+            return self.cm
 
 class deep_analysis(CM):
     def __init__(self, y_true, y_pred):
@@ -76,4 +107,37 @@ class deep_analysis(CM):
             "informedness" : self.informedness(),
             "markedness" : self.markedness(),
             "diagnostic_odds_ratio" : self.diagnostic_odds_ratio()
+        }
+
+
+class overall_analysis(CM):
+    def __init__(self, y_true, y_pred):
+        super().__init__(y_true, y_pred)
+    
+    def accuracy(self):
+        return (self.TP + self.TN) / (self.TP + self.TN + self.FP + self.FN)
+    
+    def balanced_accuracy(self):
+        return (self.sensitivity() + self.specificity()) / 2
+
+    def sensitivity(self):
+        return self.TP / (self.TP + self.FN)
+
+    def specificity(self):
+        return self.TN / (self.TN + self.FP)    
+
+    def precision(self):
+        return self.TP/(self.FN +  self.TP)
+
+    def f1_score(self):
+        return (2 * self.TP) / (2 * self.TP + self.FP + self.FN)
+
+    def get_overall_analysis(self):
+        return {
+            "accuracy" : self.accuracy(),
+            "balanced_accuracy" : self.balanced_accuracy(),
+            "sensitivity" : self.sensitivity(),
+            "specificity" : self.specificity(),
+            "precision" : self.precision(),
+            "f1_score" : self.f1_score()
         }

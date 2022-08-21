@@ -1,66 +1,42 @@
-from unicodedata import decimal
-import numpy as np
-import random
+# from SmartMachineLearning import SmartML
+# print(dir(SmartML))
 
-# Test Sample
-y_true = np.array([random.randint(0, 1) for x in range(100)])
-y_pred = np.array([random.randint(0, 1) for x in range(100)])
+# from SmartMachineLearning.SmartML import SmartLog
+# print(dir(SmartLog))
 
-# Confusion Matrix Test
-# from Classification.cm import CM
-# cm_test = CM(y_true=y_true, y_pred=y_pred)
-# print(cm_test.get_cm(dict_form=True))
+# from SmartMachineLearning.Metrics.Classification import cm
+# print(dir(cm))
 
-# Confusion Matrix - Overall Analysis Test
-# from Classification.cm_overall_analysis import overall_analysis
-# cm_test = overall_analysis(y_true=y_true, y_pred=y_pred)
-# print(cm_test.get_overall_analysis())
+# from SmartMachineLearning.Metrics.Classification.cm import CM, deep_analysis, overall_analysis
+# print(dir(CM))
+# print(dir(deep_analysis))
+# print(dir(overall_analysis))
 
-# Confusion Matrix - Deep Analysis
-# from Classification.cm_deep_analysis import deep_analysis
-# cm_test = deep_analysis(y_true=y_true, y_pred=y_pred)
-# print(cm_test.get_deep_analysis())
+# from SmartMachineLearning.Metrics.Classification.report import Report
+# print(dir(Report))
 
-#Roc curve test
-# from Classification.roc_curve import roc_curve_score
-# roc_test = roc_curve_score(y_true, y_pred, 2)
-# print(roc_test.get_roc_dict())
+# from SmartMachineLearning.Metrics.Classification.roc_curve import roc_curve_score
+# print(dir(roc_curve_score))
 
-# Report test
-# from Classification.report import Report
-# report_test = Report(y_true=y_true, y_pred=y_pred)
-# print(report_test.get_cls_report())
-# print(report_test.get_roc_auc_dict(full=False, type='macro'))
-# print(report_test.get_roc_auc_dict())
+# from SmartMachineLearning.Others.utils import to_categorical
+# print(dir(to_categorical))
 
-# Roc curve drawing test
-# from Others.roc_curve_drawing import roc_curve_drawing
-# from Classification.roc_curve import roc_curve_score
-# roc_curve_score_test = roc_curve_score(y_true=y_true, y_pred=y_pred, num_class=2)
-# fprs = roc_curve_score_test.get_fpr()
-# tprs = roc_curve_score_test.get_tpr()
-# roc_curve_drawing_test = roc_curve_drawing()
-# roc_curve_drawing_test.draw_curve(fprs, tprs, title = "ROC CURVE TEST", num_class=2)
+# from SmartMachineLearning.Others.roc_curve_drawing import roc_curve_drawing
+# print(dir(roc_curve_drawing))
 
-# History Test
-# import SmartLog as sl
-# from SmartLog import SmartLog
-# SmartLogTest = SmartLog(2, 1, 5, classes=[0, 1])
-# for i in range(6):
-#     SmartLogTest.add_results(y_true=y_true, y_pred=y_pred, params_dict={0 : 1, 1 : 0})
-# print(SmartLogTest.get_history())
-# SmartLogTest.to_json()
+# from SmartMachineLearning.SmartML import SmartLog
+# from random import randint
+# import numpy as np
+# sl = SmartLog(2, 1, 5, classes=[0, 1])
+# y_true = np.array([randint(0, 1) for x in range(100)])
+# y_pred = np.array([randint(0, 1) for x in range(100)])
+# for x in range(6):
+#     for y in range(3):
+#         sl.add_results(y_true=y_true, y_pred=y_pred, params_dict={0 : 1, 1 : 0})
+# sl.to_json()
 
+# from SmartMachineLearning.Training import Monitor
+# print(dir(Monitor))
 
-
-# Test Smart Training
-from SmartLog import SmartTraining
-_dict = {
-    "n_estimators" : [50, 100, 150, 200],
-    "criterion" : ["gini", "entropy", "log_loss"],
-    "max_features" : ["sqrt", "log2", None],
-    "bootstrap" : [True, False],
-    "class_weight" : ["balanced", "balanced_subsample", None]
-}
-
-st = SmartTraining(2, 1, 5, classes=[0, 1], grid_params=_dict)
+# from SmartMachineLearning.Training.Monitor import SmartTraining
+# print(dir(SmartTraining))

@@ -1,6 +1,8 @@
 from sklearn.metrics import roc_curve
-from Others.utils import to_categorical
+# from Others.utils import to_categorical
 import numpy as np
+
+from SmartMachineLearning.Others.utils import to_categorical
 
 class roc_curve_score:
     def __init__(self, y_true, y_pred, num_class):

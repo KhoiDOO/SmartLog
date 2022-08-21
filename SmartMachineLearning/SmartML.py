@@ -1,11 +1,8 @@
-from Classification.cm import CM
-from Classification.cm_deep_analysis import deep_analysis
-from Classification.cm_overall_analysis import overall_analysis
-from Classification.report import Report
-from Classification.roc_curve import roc_curve_score
-from sklearn.model_selection import ParameterGrid
-from sklearn.model_selection import KFold
-import numpy as np
+from SmartMachineLearning.Metrics.Classification.cm import CM
+from SmartMachineLearning.Metrics.Classification.cm import deep_analysis
+from SmartMachineLearning.Metrics.Classification.cm import overall_analysis
+from SmartMachineLearning.Metrics.Classification.report import Report
+from SmartMachineLearning.Metrics.Classification.roc_curve import roc_curve_score
 
 class SmartLog:
     def __init__(self, number_class, number_label, number_fold, problem_type = "Classification", classes = None):
@@ -71,7 +68,6 @@ class SmartLog:
 
     def to_json(self, path = 'json-history.json'):
         import json
-        import os
         json_obj = json.loads(json.dumps(self.history, default=str))
         
         with open(path,
@@ -87,9 +83,3 @@ class SmartLog:
     
     def to_bson(self, path = 'bson-history.bson'):
         pass
-
-
-
-            
-            
-            
