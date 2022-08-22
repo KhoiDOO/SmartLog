@@ -235,3 +235,6 @@ lib64
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+json-history.json
+test.py

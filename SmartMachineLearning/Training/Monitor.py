@@ -7,9 +7,9 @@ class SmartTraining(SmartLog):
     def __init__(self, number_class = 2, number_label = 1, number_fold = 5, problem_type="Classification", classes=None,
                  X_data = None, y_data = None, test_size = 0.33, random_state = 42):
         super().__init__(number_class, number_label, number_fold, problem_type, classes)
-        if(not X_data):
+        if(X_data is None ):
             print("X data can not be None")
-        elif(not y_data):
+        elif(y_data is None ):
             print("y_data can not be None")
         else:
             self.X_data = X_data
@@ -18,7 +18,7 @@ class SmartTraining(SmartLog):
                                                                                     y_data, 
                                                                                     test_size=test_size, 
                                                                                     random_state=random_state) 
-        self.kf = KFold(n_split = number_fold)
+        self.kf = KFold(n_splits = number_fold)
     
     def get_X_train(self):
         return self.X_train

@@ -31,11 +31,18 @@ class SmartRandomForest(SmartTraining):
                          random_state)
         self.params_dict = params_dict
     
-    def training(self, n_estimators, criterion, max_features, bootstrap, class_weight, njob):
+    def training(self, n_estimators, 
+                 criterion, 
+                 max_features, 
+                 bootstrap, 
+                 class_weight, 
+                 njob):
         fold_index = 0
-        for train_index, test_index in self.kf.split(self.X):
+        for train_index, test_index in self.kf.split(self.X_data):
             print("\tFold: {}".format(fold_index))
-            print("\tTRAIN:", train_index, "\n\tTEST:", test_index)
+            print("\tTRAIN:", f"{train_index[0]} -- {train_index[-1]}", 
+                  "\n\tTEST:", f"{test_index[0]} -- {test_index[-1]}")
+            print(type(train_index))
         
             # folding data
             X_train, X_test = self.X_data[train_index], self.X_data[test_index]
@@ -70,11 +77,11 @@ class SmartRandomForest(SmartTraining):
         
     def smartfit(self):
         count = 0
-        for x in self.param_grid["n_estimators"]:
-            for i in self.param_grid["criterion"]:
-                for j in self.param_grid["max_features"]:
-                    for k in self.param_grid["bootstrap"]:
-                        for l in self.param_grid["class_weight"]:
+        for x in self.params_dict["n_estimators"]:
+            for i in self.params_dict["criterion"]:
+                for j in self.params_dict["max_features"]:
+                    for k in self.params_dict["bootstrap"]:
+                        for l in self.params_dict["class_weight"]:
                             print("Traning Case: {}".format(count))
                             self.training(x, i, j, k, l, 5)  
     

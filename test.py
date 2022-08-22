@@ -40,3 +40,27 @@
 
 # from SmartMachineLearning.Training.Monitor import SmartTraining
 # print(dir(SmartTraining))
+
+# from SmartMachineLearning.Training.Classification.ensemble import SmartRandomForest
+# from sklearn.datasets import make_classification
+
+# X, y = make_classification(n_samples=1000, 
+#                            n_features=10, 
+#                            n_classes=2)
+
+# test_params_dict = {
+#     "n_estimators" : [50, 100],
+#     "criterion" : ["gini"],
+#     "max_features" : ["sqrt"],
+#     "bootstrap" : [True],
+#     "class_weight" : ["balanced", "balanced_subsample"]}
+
+# srf = SmartRandomForest(number_class=2,
+#                         number_label=1,
+#                         number_fold=5,
+#                         classes=[0, 1],
+#                         X_data=X,
+#                         y_data=y,
+#                         params_dict=test_params_dict)
+# srf.smartfit()
+# srf.to_json()
