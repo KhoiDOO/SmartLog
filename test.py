@@ -65,25 +65,41 @@
 # srf.smartfit()
 # srf.to_json()
 
-from SmartMachineLearning.Training.Classification.linear_poly import SmartLogisticRegression
+# from SmartMachineLearning.Training.Classification.linear_poly import SmartLogisticRegression
+# from sklearn.datasets import make_classification
+
+# X, y = make_classification(n_samples=1000, 
+#                            n_features=10, 
+#                            n_classes=2)
+
+# test_params_dict = {
+#     "penalty" : ["l2"],
+#     "fit_intercept" : [True, False],
+#     "class_weight" : ["balanced", None],
+#     "solver" : ["newton-cg", "lbfgs", "liblinear", "sag", "saga"]}
+
+# srf = SmartLogisticRegression(number_class=2,
+#                         number_label=1,
+#                         number_fold=5,
+#                         classes=[0, 1],
+#                         X_data=X,
+#                         y_data=y,
+#                         params_dict=test_params_dict)
+# srf.smartfit()
+# srf.to_json()
+
+from SmartMachineLearning.Training.Classification.linear_poly import SmartSupportVectorMachine
 from sklearn.datasets import make_classification
 
 X, y = make_classification(n_samples=1000, 
                            n_features=10, 
                            n_classes=2)
 
-test_params_dict = {
-    "penalty" : ["l2"],
-    "fit_intercept" : [True, False],
-    "class_weight" : ["balanced", None],
-    "solver" : ["newton-cg", "lbfgs", "liblinear", "sag", "saga"]}
-
-srf = SmartLogisticRegression(number_class=2,
+srf = SmartSupportVectorMachine(number_class=2,
                         number_label=1,
                         number_fold=5,
                         classes=[0, 1],
                         X_data=X,
-                        y_data=y,
-                        params_dict=test_params_dict)
+                        y_data=y)
 srf.smartfit()
 srf.to_json()

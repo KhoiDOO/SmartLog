@@ -77,7 +77,7 @@ class SmartLog:
         
     def to_pickle(self, path = 'pickle-history.pickle'):
         import pickle
-        dbfile = open(path, 'ab')
+        dbfile = open(path, 'w')
         pickle.dump(self.history, dbfile)                     
         dbfile.close()
     
