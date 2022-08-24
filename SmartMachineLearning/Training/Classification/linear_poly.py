@@ -93,7 +93,7 @@ class SmartSupportVectorMachine(SmartTraining):
                  test_size=0.33, 
                  random_state=42,
                  params_dict = {
-                     "kernel" : ["linear", "rbf", "sigmoid"],
+                     "kernel" : ["linear", "poly", "rbf", "sigmoid"],
                      "degree" : [1, 2, 3, 5, 7, 9],
                      "gamma" : ["scale", "auto"],
                      "class_weight" : ["balanced", None]

@@ -88,18 +88,34 @@
 # srf.smartfit()
 # srf.to_json()
 
-from SmartMachineLearning.Training.Classification.linear_poly import SmartSupportVectorMachine
-from sklearn.datasets import make_classification
+# from SmartMachineLearning.Training.Classification.linear_poly import SmartSupportVectorMachine
+# from sklearn.datasets import make_classification
 
-X, y = make_classification(n_samples=1000, 
-                           n_features=10, 
-                           n_classes=2)
+# X, y = make_classification(n_samples=1000, 
+#                            n_features=10, 
+#                            n_classes=2)
 
-srf = SmartSupportVectorMachine(number_class=2,
-                        number_label=1,
-                        number_fold=5,
-                        classes=[0, 1],
-                        X_data=X,
-                        y_data=y)
-srf.smartfit()
-srf.to_json()
+# srf = SmartSupportVectorMachine(number_class=2,
+#                         number_label=1,
+#                         number_fold=5,
+#                         classes=[0, 1],
+#                         X_data=X,
+#                         y_data=y)
+# srf.smartfit()
+# srf.to_json()
+
+# from SmartMachineLearning.Training.Classification.ensemble import SmartDecisionTree
+# from sklearn.datasets import make_classification
+
+# X, y = make_classification(n_samples=1000, 
+#                            n_features=10, 
+#                            n_classes=2)
+
+# srf = SmartDecisionTree(number_class=2,
+#                         number_label=1,
+#                         number_fold=5,
+#                         classes=[0, 1],
+#                         X_data=X,
+#                         y_data=y)
+# srf.smartfit()
+# srf.to_json()
