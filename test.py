@@ -118,4 +118,23 @@
 #                         X_data=X,
 #                         y_data=y)
 # srf.smartfit()
-# srf.to_json()
+# srf.to_json()   
+
+from ctypes.wintypes import HINSTANCE
+from turtle import hideturtle
+from SmartMachineLearning.Others.roc_curve_drawing import roc_curve_drawing
+from SmartMachineLearning.Training.Classification.ensemble import SmartDecisionTree
+from sklearn.datasets import make_classification
+
+X, y = make_classification(n_samples=100, 
+                           n_features=10, 
+                           n_classes=2)
+
+srf = SmartDecisionTree(number_class=2,
+                        number_label=1,
+                        number_fold=5,
+                        classes=[0, 1],
+                        X_data=X,
+                        y_data=y)
+srf.smartfit()
+history = srf.get_history()

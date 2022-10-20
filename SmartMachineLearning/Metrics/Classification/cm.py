@@ -1,8 +1,14 @@
 from sklearn.metrics import confusion_matrix
 import math
 
-class CM:
+class CM:        
     def __init__(self, y_true, y_pred):
+        """__init__ Constructtor of the CM class.
+
+        Arguments:
+            y_true -- the true label of the data set
+            y_pred -- the ouput label of the model
+        """        
         self.cm = confusion_matrix(y_true, y_pred) # confusion matrix
         self.TP = int(self.cm[1][1]) # true positive
         self.FN = int(self.cm[1][0]) # false negative
